@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Interaktif Literasi Siswa SD</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", sans-serif;
+      background: #f0f9ff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #00897b;
+      padding: 10px;
+    }
+    nav button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #fff3e0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    nav button:hover {
+      background: #ffe0b2;
+    }
+    section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+    section.active {
+      display: block;
+    }
+    .illustration {
+      margin: 15px auto;
+      width: 200px;
+    }
+    .quiz-question {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    .quiz-option {
+      display: block;
+      margin: 5px auto;
+      padding: 10px;
+      width: 200px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      background: #e1f5fe;
+    }
+    .quiz-option:hover {
+      background: #b3e5fc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Media Interaktif Literasi Siswa SD</h1>
+    <p>Belajar Literasi dengan Seru dan Menyenangkan!</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('petunjuk')">Petunjuk Penggunaan</button>
+    <button onclick="showSection('literasi')">Bahan Literasi</button>
+    <button onclick="showSection('kuis')">Kuis</button>
+    <button onclick="showSection('pengembang')">Pengembang</button>
+  </nav>
+
+  <!-- PETUNJUK -->
+  <section id="petunjuk" class="active">
+    <h2>Petunjuk Penggunaan</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/3311/3311552.png" alt="Ilustrasi Petunjuk" class="illustration">
+    <p>Halo adik-adik! 🎉</p>
+    <p>Media ini berisi materi literasi, cerita seru, dan kuis menyenangkan.  
+       Gunakan menu di atas untuk memilih kegiatan.</p>
+  </section>
+
+  <!-- BAHAN LITERASI -->
+  <section id="literasi">
+    <h2>Bahan Literasi</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" alt="Ilustrasi Buku" class="illustration">
+    <h3>Cerita: "Si Kancil yang Cerdik"</h3>
+    <p>
+      Pada suatu hari, Kancil berjalan ke hutan dan melihat timun segar.  
+      Ia ingin sekali memakannya, tetapi timun itu berada di kebun Pak Tani.  
+      Dengan kecerdikannya, Kancil mencari cara agar bisa mencicipinya.  
+      Nah, adik-adik coba pikirkan... apakah mengambil tanpa izin itu baik?
+    </p>
+    <p><b>Pesan Moral:</b> Jadilah anak yang cerdik dan jujur. Mintalah izin jika ingin meminjam atau mengambil sesuatu.</p>
+  </section>
+
+  <!-- KUIS -->
+  <section id="kuis">
+    <h2>Kuis Literasi</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/5786/5786197.png" alt="Ilustrasi Kuis" class="illustration">
+    <div class="quiz-question">
+      Mengapa Kancil ingin mengambil timun Pak Tani?
+    </div>
+    <button class="quiz-option" onclick="checkAnswer(this, true)">Karena Kancil lapar</button>
+    <button class="quiz-option" onclick="checkAnswer(this, false)">Karena Kancil ingin bermain</button>
+    <button class="quiz-option" onclick="checkAnswer(this, false)">Karena Kancil suka berlari</button>
+
+    <div class="quiz-question">
+      Apa pesan moral dari cerita Kancil?
+    </div>
+    <button class="quiz-option" onclick="checkAnswer(this, false)">Boleh mengambil tanpa izin</button>
+    <button class="quiz-option" onclick="checkAnswer(this, true)">Harus jujur dan minta izin</button>
+    <button class="quiz-option" onclick="checkAnswer(this, false)">Tidak perlu izin jika lapar</button>
+  </section>
+
+  <!-- PENGEMBANG -->
+  <section id="pengembang">
+    <h2>Tentang Pengembang</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="Ilustrasi Pengembang" class="illustration">
+    <p>Aplikasi ini dikembangkan untuk mendukung literasi siswa SD  
+       agar belajar menjadi lebih seru, interaktif, dan menyenangkan! 🎨</p>
+    <p><b>Pengembang:</b> Tim Kreatif Literasi</p>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    function checkAnswer(button, correct) {
+      if (correct) {
+        alert("🎉 Jawaban Benar! Hebat sekali!");
+      } else {
+        alert("😅 Wah, coba lagi ya!");
+      }
+    }
+  </script>
+</body>
+</html>
