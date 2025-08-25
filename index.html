@@ -3,181 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Interaktif Literasi Siswa SD</title>
+  <title>Literasi Anak SD</title>
   <style>
     body {
-      font-family: "Comic Sans MS", sans-serif;
-      background: #f0f9ff;
       margin: 0;
-      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: skyblue;
+      overflow-x: hidden;
     }
-    header {
-      background: #4db6ac;
-      color: white;
+
+    /* Animasi awan */
+    .cloud {
+      position: absolute;
+      top: 50px;
+      width: 150px;
+      animation: moveClouds 60s linear infinite;
+    }
+    .cloud2 {
+      top: 120px;
+      width: 200px;
+      animation-duration: 80s;
+    }
+
+    @keyframes moveClouds {
+      0% { left: -200px; }
+      100% { left: 100%; }
+    }
+
+    /* Animasi burung */
+    .bird {
+      position: absolute;
+      top: 200px;
+      width: 80px;
+      animation: flyBird 25s linear infinite;
+    }
+    .bird2 {
+      top: 250px;
+      width: 100px;
+      animation-duration: 35s;
+      animation-delay: 5s;
+    }
+
+    @keyframes flyBird {
+      0% { left: -150px; }
+      100% { left: 100%; }
+    }
+
+    /* Konten Utama */
+    .container {
+      position: relative;
+      z-index: 10;
       text-align: center;
+      padding: 50px;
+    }
+
+    .menu {
+      background: #fff;
       padding: 20px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #00897b;
-      padding: 10px;
-      gap: 10px;
-    }
-    nav button {
+
+    .menu button {
+      display: block;
+      margin: 10px auto;
       padding: 10px 20px;
-      background: #fff3e0;
       border: none;
       border-radius: 10px;
+      background: #ffcc00;
       cursor: pointer;
-      font-size: 16px;
-      flex: 1 1 auto;
-      max-width: 200px;
-    }
-    nav button:hover {
-      background: #ffe0b2;
-    }
-    section {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-    section.active {
-      display: block;
-    }
-    .illustration {
-      margin: 15px auto;
-      width: 200px;
-      max-width: 80%;
-    }
-    .quiz-question {
-      margin: 20px 0;
       font-size: 18px;
     }
-    .quiz-option {
-      display: block;
-      margin: 5px auto;
-      padding: 12px;
-      width: 90%;
-      max-width: 300px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      background: #e1f5fe;
-      font-size: 16px;
-    }
-    .quiz-option:hover {
-      background: #b3e5fc;
-    }
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 20px;
-      }
-      nav button {
-        font-size: 14px;
-        padding: 8px;
-      }
-      .quiz-question {
-        font-size: 16px;
-      }
+
+    .menu button:hover {
+      background: #ff9900;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>📚 Media Interaktif Literasi Siswa SD</h1>
-    <p>Belajar Literasi dengan Seru dan Menyenangkan!</p>
-    <!-- Tombol musik -->
-    <button onclick="toggleMusic()" style="margin-top:10px; padding:8px 15px; border-radius:8px; border:none; cursor:pointer;">🎵 Putar/Jeda Musik</button>
-  </header>
 
-  <nav>
-    <button onclick="showSection('petunjuk')">Petunjuk Penggunaan</button>
-    <button onclick="showSection('literasi')">Bahan Literasi</button>
-    <button onclick="showSection('kuis')">Kuis</button>
-    <button onclick="showSection('pengembang')">Pengembang</button>
-  </nav>
+  <!-- Awan -->
+  <img src="https://i.ibb.co/8cYDLwS/cloud.png" class="cloud" alt="cloud">
+  <img src="https://i.ibb.co/8cYDLwS/cloud.png" class="cloud cloud2" alt="cloud">
 
-  <!-- PETUNJUK -->
-  <section id="petunjuk" class="active">
-    <h2>Petunjuk Penggunaan</h2>
-    <img src="https://cdn-icons-png.flaticon.com/512/3311/3311552.png" alt="Ilustrasi Petunjuk" class="illustration">
-    <p>Halo adik-adik! 🎉</p>
-    <p>Media ini berisi materi literasi, cerita seru, dan kuis menyenangkan.  
-       Gunakan menu di atas untuk memilih kegiatan.</p>
-  </section>
+  <!-- Burung -->
+  <img src="https://i.ibb.co/fxWTVtq/bird.png" class="bird" alt="bird">
+  <img src="https://i.ibb.co/fxWTVtq/bird.png" class="bird bird2" alt="bird">
 
-  <!-- BAHAN LITERASI -->
-  <section id="literasi">
-    <h2>Bahan Literasi</h2>
-    <img src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" alt="Ilustrasi Buku" class="illustration">
-    <h3>Cerita: "Si Kancil yang Cerdik"</h3>
-    <p>
-      Pada suatu hari, Kancil berjalan ke hutan dan melihat timun segar.  
-      Ia ingin sekali memakannya, tetapi timun itu berada di kebun Pak Tani.  
-      Dengan kecerdikannya, Kancil mencari cara agar bisa mencicipinya.  
-      Nah, adik-adik coba pikirkan... apakah mengambil tanpa izin itu baik?
-    </p>
-    <p><b>Pesan Moral:</b> Jadilah anak yang cerdik dan jujur. Mintalah izin jika ingin meminjam atau mengambil sesuatu.</p>
-  </section>
+  <!-- Konten Utama -->
+  <div class="container">
+    <h1>📚 Selamat Datang di Dunia Literasi Anak SD 🌈</h1>
+    <p>Pilih menu di bawah untuk belajar sambil bermain</p>
 
-  <!-- KUIS -->
-  <section id="kuis">
-    <h2>Kuis Literasi</h2>
-    <img src="https://cdn-icons-png.flaticon.com/512/5786/5786197.png" alt="Ilustrasi Kuis" class="illustration">
-    <div class="quiz-question">
-      Mengapa Kancil ingin mengambil timun Pak Tani?
+    <div class="menu">
+      <button onclick="alert('Petunjuk penggunaan akan tampil di sini')">📖 Petunjuk Penggunaan</button>
+      <button onclick="alert('Bahan literasi berisi cerita dongeng')">📚 Bahan Literasi</button>
+      <button onclick="alert('Kuis akan tampil di sini')">❓ Kuis</button>
+      <button onclick="alert('Nama Pengembang: Tim Literasi Digital')">👨‍💻 Pengembang Aplikasi</button>
     </div>
-    <button class="quiz-option" onclick="checkAnswer(this, true)">Karena Kancil lapar</button>
-    <button class="quiz-option" onclick="checkAnswer(this, false)">Karena Kancil ingin bermain</button>
-    <button class="quiz-option" onclick="checkAnswer(this, false)">Karena Kancil suka berlari</button>
+  </div>
 
-    <div class="quiz-question">
-      Apa pesan moral dari cerita Kancil?
-    </div>
-    <button class="quiz-option" onclick="checkAnswer(this, false)">Boleh mengambil tanpa izin</button>
-    <button class="quiz-option" onclick="checkAnswer(this, true)">Harus jujur dan minta izin</button>
-    <button class="quiz-option" onclick="checkAnswer(this, false)">Tidak perlu izin jika lapar</button>
-  </section>
-
-  <!-- PENGEMBANG -->
-  <section id="pengembang">
-    <h2>Tentang Pengembang</h2>
-    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="Ilustrasi Pengembang" class="illustration">
-    <p>Aplikasi ini dikembangkan untuk mendukung literasi siswa SD  
-       agar belajar menjadi lebih seru, interaktif, dan menyenangkan! 🎨</p>
-    <p><b>Pengembang:</b> Tim Kreatif Literasi</p>
-  </section>
-
-  <!-- Musik latar -->
-  <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-littleidea.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-
-    function checkAnswer(button, correct) {
-      if (correct) {
-        alert("🎉 Jawaban Benar! Hebat sekali!");
-      } else {
-        alert("😅 Wah, coba lagi ya!");
-      }
-    }
-
-    function toggleMusic() {
-      let music = document.getElementById("bg-music");
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
-    }
-  </script>
 </body>
 </html>
